@@ -18,26 +18,32 @@ export default function Navbar() {
     const [query, setQuery] = useState('')
     const [category, setCategory] = useState([])
     const [product, setProduct] = useState([])
-    const allItems = [...product, ...category]
 
 
     const filteredItems = useMemo(() => {
 
         if (!query) return [];
-        return allItems.filter(item => (
-            item.category_name?.toLowerCase().includes(query.toLowerCase()) ||
+
+        const filteredProducts = product.filter(item => (
             item.product_name?.toLowerCase().includes(query.toLowerCase())
         ))
-    }, [query, allItems])
+
+        const filteredCategories = category.filter(item => (
+            item.category_name?.toLowerCase().includes(query.toLowerCase())
+        ))
+
+        return [...filteredProducts, ...filteredCategories]
+    }, [query, product, category])
 
     const handleLogout = () => {
         localStorage.removeItem("customer_id")
-        alert("logout successgully")
+        alert(" You are logout successfully")
         navigate('/')
     }
 
     useEffect(() => {
         getData()
+        console.log(filteredItems)
     }, [])
 
     useEffect(() => {
@@ -145,8 +151,8 @@ export default function Navbar() {
                                 const isProduct = !!obj.product_id
                                 const linkto = isProduct ? `/product/${obj.product_id}` : `/category/${obj.category_id}`
                                 return (
-                                    <Link to={linkto}>
-                                    <li className='search-list' key={i}
+                                    <Link to={linkto} key={isProduct ? obj.product_id : obj.category_id}>
+                                    <li className='search-list' 
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.background = '#f0f5ff';
                                             // e.currentTarget.style.paddingLeft = '24px';
@@ -155,7 +161,7 @@ export default function Navbar() {
                                             e.currentTarget.style.background = 'transparent';
                                             // e.currentTarget.style.paddingLeft = '5px';
                                         }} onClick={() => (setIsOpen(false), setQuery(''))}
-                                        >{obj.category_name || obj.product_name}</li>
+                                        >{isProduct ? obj.product_name : obj.category_name}</li>
                                     </Link>
                                 )})
                         ) : (

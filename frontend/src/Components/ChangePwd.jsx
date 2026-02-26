@@ -28,7 +28,7 @@ export default function ChangePwd() {
         setPassword('')
         setNewPassword('')
         setConfirmPassword('')
-        navigate('/')
+        navigate('/login')
         return
         
       }
@@ -38,12 +38,12 @@ export default function ChangePwd() {
   }
   return (
     <div className="signup-div">
-      <div className="signup-1">
+      <div className="signup-1 login-signup-1">
         <span className="signup1-span1">Change Password</span>
         <span className="signup1-span2">Change your password to get started</span>
         <img src="img/login-img.png" alt="login-img" />
       </div>
-      <div className="signup-2">
+      <div className="signup-2 login-component">
         <div className="signup-span">Change Password</div>
         <form action="#">
             <input type="password" name="oldpassword" id="oldpassword" placeholder="Old Password" className="form-control signup-input" onChange={(e) => setPassword(e.target.value)}/>

@@ -21,6 +21,26 @@ export default function ContactUs() {
   } 
 
   const handleInsertData = async() => {
+    if(fname === ''){
+      alert('Give us first name to identify you!')
+      return
+    }
+    if(lname === ''){
+      alert('Give us last name to identify you!')
+      return
+    }
+    if(email === ''){
+      alert('Give us email to identify you!')
+      return
+    }
+    if(phone === ''){
+      alert('Give us mobile number to identify you!')
+      return
+    }
+    if(message === ''){
+      alert('Enter a message!')
+      return
+    }
     const payload = {
       "first_name": fname,
       "last_name": lname,
@@ -31,6 +51,7 @@ export default function ContactUs() {
     }
     const res = await axios.post("http://localhost:1700/backend/contactus", payload)
     console.log(res.data)
+    alert('Thank you for reaching us!')
     setFName('')
     setLName('')
     setEmail('')

@@ -73,6 +73,7 @@ export default function ManageCustomer() {
                     <th className='address-row'>Sr. No.</th>
                     <th className='address-row'>Name</th>
                     <th className='email-row'>Email</th>
+                    <th className='address-row'>Mobile Number</th>
                     <th className='address-row'>City</th>
                     <th className='address-row'>State</th>
                     <th className='address-row'>Address</th>
@@ -86,11 +87,12 @@ export default function ManageCustomer() {
                                 <td className='address-row'>{++i}</td>
                                 <td className='address-row'>{obj.name}</td>
                                 <td className='email-row'>{obj.email}</td>
+                                <td className='address-row'>{obj.mobile_no}</td>
                                 <td className='address-row'>{obj.city}</td>
                                 <td className='address-row'>{obj.state}</td>
                                 <td className='address-row'><button type="button" className='view-details-btn' onClick={() => handleViewDetails(obj.address)}>View</button></td>
                                 <td className='admin-btn-td address-row'>
-                                    <button className='admin-edit product-edit' onClick={() => {
+                                    {/* <button className='admin-edit product-edit' onClick={() => {
                                         if(!localStorage.getItem("admin_id")){
                                             alert("Log in to your account to access admin panel")
                                             navigate("/")
@@ -98,7 +100,7 @@ export default function ManageCustomer() {
                                         else{
                                             navigate(`/edit-customer/${obj.customer_id}`)
                                         }
-                                    }}><i class="fa-solid fa-pen-to-square"></i></button>
+                                    }}><i class="fa-solid fa-pen-to-square"></i></button> */}
                                     <button className='admin-edit' onClick={() => {
                                         if(!localStorage.getItem("admin_id")){
                                             alert("Log in to your account to access admin panel")

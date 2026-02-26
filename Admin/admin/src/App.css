@@ -744,8 +744,8 @@ footer span a{
 
 .address-row{
     text-align: left !important;
-    width: 50% !important;              /* adjust as needed */
-    max-width: 50% !important;
+    width: 60% !important;              /* adjust as needed */
+    max-width: 60% !important;
     white-space: normal;       /* allow wrapping */
     word-break: break-word;   
 }

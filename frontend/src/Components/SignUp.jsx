@@ -53,7 +53,7 @@ export default function SignUp() {
   }
   return (
     <div className="signup-div">
-      <div className="signup-1">
+      <div className="signup-1 signup-left-div">
         <div>
           <span className="signup1-span1">Looks like you're new here!</span><br />
           <span className="signup1-span2">Sign up with your mobile number to get started</span>

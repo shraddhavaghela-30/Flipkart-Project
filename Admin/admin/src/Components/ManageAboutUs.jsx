@@ -11,8 +11,7 @@ export default function ManageAboutUs() {
     const [aboutUs, setAboutUs] = useState([])
     const [isAddress, setIsaddress] = useState('')
     const [isOpenView, setIsOpenView] = useState(false)
-    const [isdelete, setIsDelete] = useState(false)
-    const [Deleteid, setDeleteId] = useState('')
+    const [previewImage, setPreviewImage] = useState(false)
 
     useEffect(() => {
         getData()
@@ -90,10 +89,30 @@ export default function ManageAboutUs() {
                         <tr>
                             <td>1</td>
                             <td><button type="button" className='view-details-btn' onClick={() => handleViewDetails(aboutUs.heading_one)}>View</button></td>
-                            <td><img src={`http://localhost:1700/images/${aboutUs.image_one}`} alt="image-one" height={100} width={100}/></td>
+                            <td>
+                                <img src={`http://localhost:1700/images/${aboutUs.image_one}`} alt="product-image" height={50} width={50}  className='admin-image' onClick={() => setPreviewImage(`http://localhost:1700/images/${aboutUs.image_one}`)}/>
+
+                                {previewImage && (
+                                    <div className='image-modal' onClick={() => setPreviewImage(null)}>
+                                        <span className='close-admin-image'><i class="fa-regular fa-circle-xmark"></i></span>
+                                        <img src={previewImage} className='modal-image' alt="Image" onClick={(e) => (e.stopPropagation)} />
+                                    </div>
+                                    
+                                )}
+                            </td>
                             <td><button type="button" className='view-details-btn' onClick={() => handleViewDetails(aboutUs.content_one)}>View</button></td>
                             <td><button type="button" className='view-details-btn' onClick={() => handleViewDetails(aboutUs.heading_two)}>View</button></td>
-                            <td><img src={`http://localhost:1700/images/${aboutUs.image_two}`} alt="image-one" height={100} width={100}/></td>
+                            <td>
+                                <img src={`http://localhost:1700/images/${aboutUs.image_two}`} alt="product-image" height={50} width={50}  className='admin-image' onClick={() => setPreviewImage(`http://localhost:1700/images/${aboutUs.image_two}`)}/>
+
+                                {previewImage && (
+                                    <div className='image-modal' onClick={() => setPreviewImage(null)}>
+                                        <span className='close-admin-image'><i class="fa-regular fa-circle-xmark"></i></span>
+                                        <img src={previewImage} className='modal-image' alt="Image" onClick={(e) => (e.stopPropagation)} />
+                                    </div>
+                                    
+                                )}
+                            </td>
                             <td><button type="button" className='view-details-btn' onClick={() => handleViewDetails(aboutUs.content_two)}>View</button></td>
                             {/* <td>{obj.entry_date1}</td>
                             <td>{obj.entry_by_role}</td>
