@@ -73,6 +73,7 @@ export default function MasterOrder() {
                     <th>Order Date</th>
                     <th>Total Items</th>
                     <th>Discount</th>
+                    <th>Coupons</th>
                     <th>Total Amount</th>
                     <th>Total Discount</th>
                     <th>items</th>
@@ -91,6 +92,7 @@ export default function MasterOrder() {
                             <td>{obj.order_date1}</td>
                             <td>{obj.total_items}</td>
                             <td>{obj.discount}</td>
+                            <td>{obj.coupons}</td>
                             <td>{obj.total_amount}</td>
                             <td>{obj.total_discount}</td>
                             <td><Link to={`/order-trn/${obj.order_id}`}>

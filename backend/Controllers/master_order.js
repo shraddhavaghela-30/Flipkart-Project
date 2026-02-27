@@ -3,7 +3,7 @@ import {db} from '../db.js'
 export const getMasterOrders = (req, res) => {
     // const getMasterOrdersQuery = 'SELECT *, DATE_FORMAT(order_date, "%d-%m-%Y") AS order_date1, DATE_FORMAT(entry_date, "%d-%m-%Y") AS entry_date1, DATE_FORMAT(update_date, "%d-%m-%Y") AS update_date1 FROM `master_order`'
 
-    const getMasterOrdersQuery = 'SELECT master_order.`order_id`, customer.`name`, customer.`mobile_no`,customer.`city`, customer.`state` ,customer.`address`, master_order.`order_date`, master_order.`total_items`, master_order.`amount`, master_order.`discount`, master_order.`total_amount`, master_order.`total_discount`,  DATE_FORMAT(order_date, "%d-%m-%Y") AS order_date1 FROM master_order INNER JOIN customer ON master_order.`customer_id` = customer.`customer_id`'
+    const getMasterOrdersQuery = 'SELECT master_order.`order_id`, customer.`name`, customer.`mobile_no`,customer.`city`, customer.`state` ,customer.`address`, master_order.`order_date`, master_order.`total_items`, master_order.`amount`, master_order.`discount`, master_order.`coupons`,master_order.`total_amount`, master_order.`total_discount`,  DATE_FORMAT(order_date, "%d-%m-%Y") AS order_date1 FROM master_order INNER JOIN customer ON master_order.`customer_id` = customer.`customer_id`'
 
     db.query(getMasterOrdersQuery, (err, data) => {
         if(err){
