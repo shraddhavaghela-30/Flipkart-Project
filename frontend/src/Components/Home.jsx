@@ -102,7 +102,7 @@ export default function Home() {
         </div>
 
         <div className="all-shop-div">
-            {category && category.filter(obj => obj.status).map((obj) => (
+            {category && category.filter(obj => obj.status).filter(obj => products.filter(p => p.category_id === obj.category_id).length >= 4).map((obj) => (
                 <div className="inner-shop-div">
                     <div className="grid-heading">
                         <span>{obj.category_name}</span>

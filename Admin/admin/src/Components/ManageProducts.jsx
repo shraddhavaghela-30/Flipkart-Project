@@ -177,7 +177,7 @@ export default function ManageProducts() {
                                     navigate("/")
                                 }
                                 else{
-                                    navigate(`/add-products/${obj.product_id }`)
+                                    navigate(`/add-products/${obj.product_id}`)
                                 }
                             }}><i class="fa-solid fa-pen-to-square"></i></button>
                             <button className='admin-edit'><i class="fa-solid fa-trash" onClick={() => {
@@ -186,7 +186,7 @@ export default function ManageProducts() {
                                     navigate("/")
                                 }else{
                                     handleDeleteData()
-                                    setDeleteId(obj.product_id )
+                                    setDeleteId(obj.product_id)
                                 }
                             }}></i></button>
                             </td>
