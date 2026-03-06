@@ -79,7 +79,7 @@ export const updateCustomer = (req, res) => {
             const value = [
             req?.body?.name || existingUser.name,
             req?.body?.email || existingUser.email,
-            req?. body?.mobile_no || existingUser.mobile_no,
+            req?.body?.mobile_no || existingUser.mobile_no,
             req?.body?.password || existingUser.password,
             req?.body?.city || existingUser.city,
             req?.body?.state || existingUser.state,

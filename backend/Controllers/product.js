@@ -82,7 +82,7 @@ export const updateProduct = (req, res) => {
     const updateProductQuery = 'UPDATE `product` SET `category_id`= ?,`product_name`= ?,`image`= ?,`price`= ?,`discount`= ?,`description`= ?, `update_date`= ?, `update_by`= ? WHERE `product_id` = ?'
 
     const value = [
-        req.body.category_id ,
+        req.body.category_id,
         req.body.product_name,
         req?.file?.filename || req?.body?.file,
         req.body.price,
